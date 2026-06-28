@@ -1,0 +1,15 @@
+# Environment variables
+.env
+.env.*
+
+# Jupyter notebooks with sensitive experiments
+chat.ipynb
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
