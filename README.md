@@ -82,7 +82,7 @@ Applied the structured data technique to generate raw AWS CLI bash commands. Cou
 
 > Learning: The system prompt workaround is the consistent pattern for any structured output exercise on Claude 4 — prefill is a Claude 3 technique.
 
-### Step 10 — Generating Test Datasets ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/11))
+### Step 10 — Prompt Evaluation: Generating Test Datasets ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/11))
 
 Used Claude to auto-generate an eval dataset of AWS-specific coding tasks (Python, JSON, Regex). Applied the Claude 4 system prompt workaround to get raw JSON output. Added `json.dumps(dataset, indent=2)` for readable notebook output and saved the dataset to `dataset.json` for reuse.
 
