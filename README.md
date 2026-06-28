@@ -31,3 +31,12 @@ Built a live terminal chat session using a `while True` loop with the helper fun
 - Discovered that submitting empty input raises `BadRequestError: user messages must have non-empty content` — need to guard with `if not user_input.strip(): continue`
 
 > Learning: The API rejects empty user messages — always validate input before sending.
+
+### Step 4 — System Prompts ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/5))
+
+Learned how to use system prompts to shape Claude's role and behaviour:
+- Pass a plain string via the `system` parameter to define Claude's persona and constraints
+- The same question gets a completely different response with vs. without a system prompt (e.g. math tutor gives hints instead of direct answers)
+- Updated `chat()` to accept an optional `system` arg — conditionally included since the API rejects `system=None`
+
+> Learning: System prompts are the primary tool for building specialised AI assistants — they define the role, tone, and constraints before any user message.
