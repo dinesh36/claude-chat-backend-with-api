@@ -47,3 +47,15 @@ XML tags add structure to complex prompts — creating clear boundaries between 
 - Applied to the meal plan prompt: athlete inputs wrapped in `<athlete_information>` tags for clarity
 
 > Learning: XML tags don't always show dramatic score gains on simple prompts — their power scales with prompt complexity and data volume.
+
+## Providing Examples ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/20))
+
+One-shot and multi-shot prompting — giving Claude sample input/output pairs — is one of the highest-leverage techniques for handling edge cases and complex output formats.
+
+- Wrap examples in XML tags: `<sample_input>` and `<ideal_output>` for clear structure
+- Use multi-shot when you need to cover different scenarios (e.g. sarcasm vs. straightforward sentiment)
+- Source examples from highest-scoring eval outputs — they represent what "perfect" looks like
+- Add context explaining *why* the output is ideal, not just the format
+- Examples show rather than tell — more reliable than describing requirements in words alone
+
+> Learning: When prompts keep failing on edge cases, adding a single well-chosen example often fixes it faster than rewriting the instructions.
