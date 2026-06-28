@@ -6,4 +6,4 @@ A step-by-step learning repo following the [Building with the Claude API](https:
 
 - [Accessing Claude with API](wiki/accessing-claude-with-api.md) — first request, multi-turn conversations, system prompts, temperature, streaming, structured data
 - [Prompt Evaluation](wiki/prompt-evaluation.md) — generating test datasets, running evals, model-based grading, code-based grading
-- [Prompt Engineering Techniques](wiki/prompt-engineering-techniques.md)
+- [Prompt Engineering Techniques](wiki/prompt-engineering-techniques.md) — iterative prompt refinement using eval scores; `prompting/prompting.ipynb` contains the full `PromptEvaluator` framework
