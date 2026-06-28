@@ -81,3 +81,9 @@ Forced Claude to return raw structured output (JSON) without markdown wrappers o
 Applied the structured data technique to generate raw AWS CLI bash commands. Course exercise uses prefill + stop sequence (` ```bash ` / ` ``` `) — fails on Claude 4 with the same prefill error as Step 8. Fixed by replacing with `system="Output raw bash commands only, one per line, no numbering, no markdown, no explanation."`.
 
 > Learning: The system prompt workaround is the consistent pattern for any structured output exercise on Claude 4 — prefill is a Claude 3 technique.
+
+### Step 10 — Generating Test Datasets ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/11))
+
+Used Claude to auto-generate an eval dataset of AWS-specific coding tasks (Python, JSON, Regex). Applied the Claude 4 system prompt workaround to get raw JSON output. Added `json.dumps(dataset, indent=2)` for readable notebook output and saved the dataset to `dataset.json` for reuse.
+
+> Learning: Generate the dataset once and save it — regenerating on every eval run wastes tokens and introduces variability into your baseline.
