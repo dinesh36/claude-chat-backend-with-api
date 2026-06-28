@@ -121,3 +121,15 @@ Replaced the hardcoded score placeholder with a real model grader using a second
 - Always ask for reasoning alongside the score — without it, models default to middling scores around 6
 
 > Learning: The average score is your baseline. Change the prompt, re-run, compare — if the number goes up, the change helped.
+
+### Step 13 — Prompt Evaluation: Code Based Grading ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/commit/f0b9759b508837104ac5f4f7ceb3dd407324844c))
+
+Added syntax validation alongside the model grader to catch format and parse errors programmatically.
+
+- Three validator functions: `validate_json` (uses `json.loads`), `validate_python` (uses `ast.parse`), `validate_regex` (uses `re.compile`)
+- Each returns 10 (valid syntax) or 0 (invalid) — no partial credit
+- Dataset updated to include a `"format"` field (`"python"`, `"json"`, or `"regexp"`) so the right validator is picked per task
+- `run_test_case()` now averages model score and syntax score: `score = (model_score + syntax_score) / 2`
+- The course also suggests `add_assistant_message(messages, "```code")` to enforce raw output — replaced with system prompt for Claude 4 compatibility
+
+> Learning: Combining a code grader (did it parse?) with a model grader (did it solve the task?) gives a more complete picture than either alone.
