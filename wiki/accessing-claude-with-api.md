@@ -82,3 +82,15 @@ Practised getting clean structured output from Claude — this time generating r
 - Fix: use a system prompt instead — `"Output raw bash commands only, one per line, no numbering, no markdown, no explanation."`
 
 > Learning: Whenever you see `add_assistant_message` being used to control output format, replace it with a system prompt — that's the Claude 4 compatible way.
+
+## Tool Functions ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/21))
+
+Tool functions are plain Python functions Claude calls automatically when it needs data beyond its training — the core building block of tool use.
+
+- Write regular Python functions; Claude decides when to call them based on user requests
+- **Validate inputs** and raise descriptive errors — Claude reads errors and may self-correct and retry
+- Use descriptive function and parameter names so Claude understands the tool's purpose
+- First tool built: `get_current_datetime(date_format)` — returns current time formatted via `strftime`
+- Creating the function is step one; next comes the JSON schema that describes it to Claude
+
+> Learning: Claude learns from error messages — a clear `ValueError` lets it retry with corrected arguments rather than failing silently.
