@@ -37,3 +37,15 @@ When Claude uses a tool, it returns a multi-block `response.content` list — no
 - Full flow: send message + schema → receive TextBlock + ToolUseBlock → execute function → send result back → receive final response
 
 > Learning: Appending `response.content` directly (not extracting just the text) is the correct way to preserve multi-block conversation history.
+
+## Sending Tool Results ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/25))
+
+After Claude returns a ToolUseBlock, execute the function and send back a `tool_result` user message to complete the round-trip.
+
+- Unpack Claude's requested args with `**response.content[1].input` and call your function
+- Wrap the result in a `tool_result` block with `tool_use_id` (must match ToolUseBlock `id`), `content` (string), and `is_error`
+- Claude can request multiple tool calls in one response — each has a unique ID, match them when sending results back
+- Always include the tool schema in the follow-up API call — Claude needs it to understand tool references already in the history
+- Full message history: user message → assistant (TextBlock + ToolUseBlock) → user (tool_result) → final assistant response
+
+> Learning: Always pass `tools=[...]` on the follow-up call even when you don't expect another tool use — without it Claude can't parse its own prior tool references in the history.
