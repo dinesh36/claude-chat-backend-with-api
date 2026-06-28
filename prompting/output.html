@@ -1,0 +1,283 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">3</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">2.7 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">0.0%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with a high-performance endurance athlete (marathon runner) with multiple dietary restrictions (vegan, gluten-free) to verify the meal plan balances performance nutrition with constraint accommodation</td>
+                <td class="prompt-inputs"><strong>height:</strong> 178<br><strong>weight:</strong> 68<br><strong>goal:</strong> Marathon endurance performance with high energy demands<br><strong>restrictions:</strong> Vegan, gluten-free</td>
+                <td class="criteria">• Meal plan covers full day with breakfast, lunch, dinner, and snacks<br>• All meals accommodate both vegan and gluten-free requirements<br>• Includes adequate carbohydrates and protein to support marathon training energy needs<br>• Meals are practical and concise (1-day format, not elaborate)</td>
+                <td class="output"><pre># Nutrition Plan for Vegan Marathon Training
+
+## Daily Caloric Target
+**~2,800-3,200 calories** (adjust based on training intensity)
+
+## Macronutrient Breakdown
+
+| Macro | Target | Sources |
+|-------|--------|---------|
+| **Carbs** | 55-60% | Rice, quinoa, oats, sweet potatoes, fruits |
+| **Protein** | 1.6-2.0g/kg (109-136g) | Legumes, tofu, tempeh, nuts, seeds, nutritional yeast |
+| **Fat** | 20-25% | Nuts, seeds, avocado, olive oil, coconut oil |
+
+## Key Foods by Category
+
+**Proteins:**
+- Lentils, chickpeas, black beans
+- Tofu, tempeh, edamame
+- Hemp seeds, pumpkin seeds
+- Pea protein powder
+
+**Carbs (fuel):**
+- White/brown rice, pasta (GF)
+- Sweet potatoes, regular potatoes
+- Bananas, dates (quick energy)
+- Buckwheat, certified GF oats
+
+**Healthy Fats:**
+- Tahini, almond/peanut butter
+- Chia/flax seeds, walnuts
+- Coconut oil for cooking
+
+## Marathon-Specific Timing
+- **Pre-run:** Carbs + small protein 2-3 hours before
+- **During:** Sports drink or gels (if >90 min)
+- **Post-run:** 3:1 carb-to-protein within 30 minutes
+
+Consider a **vegan sports nutritionist** for personalized fueling strategy.</pre></td>
+                <td class="score-col"><span class="score score-low">3</span></td>
+                <td class="reasoning">The solution fails a mandatory requirement. While it excellently covers daily caloric totals and macronutrient breakdowns, it does not provide the required 'meals with exact foods, portions and timing.' The output is a nutritional framework and food reference guide rather than an actual 1-day meal plan. A proper solution must show specific meals (e.g., 'Breakfast: 1.5 cups GF oats with 1 banana, 2 tbsp almond butter, 8:00 AM') with exact portions and timing throughout the day. The task explicitly requests a '1 day meal plan' with 'breakfast, lunch, dinner, and snacks,' none of which are provided in concrete form.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a strength-focused athlete (weightlifter) with minimal restrictions to ensure the meal plan emphasizes adequate protein intake and caloric surplus for muscle building goals</td>
+                <td class="prompt-inputs"><strong>height:</strong> 180<br><strong>weight:</strong> 85<br><strong>goal:</strong> muscle building with strength focus<br><strong>restrictions:</strong> none</td>
+                <td class="criteria">• Meal plan covers 3 meals and 2-3 snacks distributed throughout the day<br>• Each meal contains a significant protein source (minimum 25-30g protein per meal)<br>• Total daily caloric intake supports muscle building surplus for an 85kg athlete<br>• Plan is presented in compact, easy-to-read format suitable for quick reference</td>
+                <td class="output"><pre># Nutrition Plan for Muscle Building & Strength
+
+## Daily Calorie Target
+**~2,800-3,200 calories/day** (depending on activity level and current metabolism)
+
+## Macronutrient Breakdown
+
+| Macro | Target | Details |
+|-------|--------|---------|
+| **Protein** | 170-190g | ~2.0-2.2g per kg bodyweight |
+| **Carbs** | 350-420g | Fuel for training & recovery |
+| **Fats** | 75-90g | ~25-30% of total calories |
+
+## Priority Foods by Category
+
+### Protein Sources
+- Chicken breast, turkey, lean beef
+- Fish (salmon, cod, tuna)
+- Eggs & egg whites
+- Greek yogurt, cottage cheese
+- Whey protein powder
+- Legumes (beans, lentils)
+
+### Complex Carbs
+- Oats, brown rice, quinoa
+- Sweet potatoes, regular potatoes
+- Whole grain bread & pasta
+- Fruits (bananas, berries, apples)
+
+### Healthy Fats
+- Olive oil, avocado oil
+- Nuts & seeds
+- Fatty fish
+- Eggs
+
+## Meal Timing Tips
+- Eat protein + carbs **within 2 hours post-workout**
+- Distribute protein evenly across 4-5 meals
+- Stay hydrated (3-4L water daily minimum)
+
+**Note:** Adjust calories based on progress—if not gaining strength/muscle after 3-4 weeks, add 200-300 calories.</pre></td>
+                <td class="score-col"><span class="score score-low">3</span></td>
+                <td class="reasoning">The solution fails the mandatory requirement to include 'Meals with exact foods, portions and timing.' While it provides excellent nutritional guidance, caloric targets, and macronutrient breakdowns, it does not deliver an actual 1-day meal plan. The task explicitly asks for a '1 day meal plan' with specific meals, but the solution only provides a reference guide with food categories and general principles. It lacks the concrete structure of breakfast, lunch, dinner, and snacks with specific portions (e.g., '200g chicken breast, 150g brown rice') and timing (e.g., '7:00 AM breakfast'). The secondary criteria requiring 3 meals and 2-3 snacks with minimum 25-30g protein per meal are also not addressed with specific examples.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with an athlete of petite stature and lower weight pursuing weight loss while maintaining athletic performance to validate caloric deficit recommendations and nutrient density in smaller portions</td>
+                <td class="prompt-inputs"><strong>height:</strong> 160 cm<br><strong>weight:</strong> 52 kg<br><strong>goal:</strong> weight loss while maintaining athletic performance<br><strong>restrictions:</strong> vegetarian</td>
+                <td class="criteria">• Meal plan contains exactly 3 meals spanning 1 day with appropriate caloric deficit (approximately 300-500 calories below maintenance for safe weight loss)<br>• Each meal prioritizes nutrient density with adequate protein, complex carbohydrates, and healthy fats in appropriately sized portions for petite athlete<br>• All meals comply with vegetarian restriction<br>• Plan is presented in compact, concise format suitable for quick reference</td>
+                <td class="output"><pre># Nutrition Plan for Weight Loss + Athletic Performance
+
+## Key Principles
+- **Moderate calorie deficit** (not aggressive—preserve muscle/performance)
+- **Adequate protein** (especially important as vegetarian)
+- **Nutrient density** (maximize nutrition per calorie)
+
+## Daily Macros (Estimate)
+- **Calories**: ~1,800-2,000 (adjust based on activity level)
+- **Protein**: 100-120g daily (1.9-2.3g per kg body weight)
+- **Carbs**: 45-55% of calories (fuel for training)
+- **Fat**: 25-30% of calories
+
+## Protein Sources (Vegetarian)
+- Greek yogurt, cottage cheese, paneer
+- Lentils, chickpeas, beans
+- Tofu, tempeh, edamame
+- Nuts, seeds, nut butters
+- Whole grain + legume combos (rice & beans)
+
+## Sample Daily Framework
+- **Breakfast**: Greek yogurt + berries + granola + seeds
+- **Lunch**: Lentil curry + brown rice + vegetables
+- **Snack**: Hummus + vegetables or protein smoothie
+- **Dinner**: Tofu stir-fry + quinoa + greens
+- **Snack**: String cheese or nuts (if needed)
+
+## Important Notes
+⚠️ Consult a **registered dietitian**—they can personalize based on your:
+- Specific sport/training intensity
+- Current metabolic rate
+- Micronutrient needs (B12, iron, zinc as vegetarian)
+
+Would you like specific meal ideas or help tracking macros?</pre></td>
+                <td class="score-col"><span class="score score-low">2</span></td>
+                <td class="reasoning">The solution provides excellent nutritional guidance and principles but fundamentally fails to deliver what was requested: a specific 1-day meal plan. The task explicitly requires 'meals with exact foods, portions and timing' and a 'daily caloric total' with 'macronutrient breakdown.' Instead, the solution offers a generic framework and educational content. It violates multiple mandatory requirements: no exact portions, no specific daily caloric total, no macro breakdown for actual meals, and suggests 5 eating occasions rather than 3 meals. While the nutritional advice is sound, it does not meet the core deliverable requirements.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    
