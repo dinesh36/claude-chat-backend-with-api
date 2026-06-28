@@ -2,9 +2,6 @@
 .env
 .env.*
 
-# Jupyter notebooks with sensitive experiments
-chat.ipynb
-
 # Python
 __pycache__/
 *.pyc
