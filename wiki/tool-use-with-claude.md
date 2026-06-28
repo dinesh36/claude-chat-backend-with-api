@@ -12,3 +12,15 @@ Tool functions are plain Python functions Claude calls automatically when it nee
 - Creating the function is step one; next comes the JSON schema that describes it to Claude
 
 > Learning: Claude learns from error messages — a clear `ValueError` lets it retry with corrected arguments rather than failing silently.
+
+## Tool Schemas ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/23))
+
+A JSON schema is the documentation Claude reads to understand when and how to call your tool — every tool spec needs three fields: `name`, `description`, and `input_schema`.
+
+- `description` is the most important field — Claude uses it to decide whether to call the tool; aim for 3–4 sentences covering what it does, when to use it, and what it returns
+- `input_schema` follows standard JSON Schema spec; describe each argument's type, purpose, and default
+- Name schemas `function_name_schema` to keep them easy to match with their function
+- Let Claude generate schemas for you — paste your function + Anthropic docs and ask for a valid tool schema
+- Use `ToolParam` from `anthropic.types` for type safety when passing schemas to the API
+
+> Learning: The description field is what Claude actually reads to decide when to call a tool — a vague description leads to missed or incorrect tool calls.
