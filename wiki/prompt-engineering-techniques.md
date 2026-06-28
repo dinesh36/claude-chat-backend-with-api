@@ -24,3 +24,15 @@ The first line of a prompt sets the tone for everything that follows — being c
 Applied to the meal plan prompt: `"What should this person eat?"` → `"Generate a one-day meal plan for an athlete that meets their dietary restrictions"` — eval score jumped from **2.32 → 3.92**.
 
 > Learning: One well-chosen action verb at the start of a prompt can double your eval score before touching anything else.
+
+## Being Specific ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/17))
+
+Specificity gives Claude a clear target — two types of guidelines you can add to any prompt.
+
+- **Output quality guidelines** — control length, format, elements to include, tone (use in almost every prompt)
+- **Process steps** — guide Claude to think step-by-step before answering; use for complex reasoning or decision-making tasks
+- Combining both gives consistency in results AND confidence Claude considered all angles
+
+Applied to the meal plan prompt: adding 6 specific output guidelines raised eval score from **3.92 → 7.86**.
+
+> Learning: Specificity is the single highest-leverage technique. Output guidelines alone can double your score — add them to every prompt by default.
