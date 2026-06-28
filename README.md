@@ -110,7 +110,7 @@ The score is hardcoded to `10` for now — real grading logic will replace this 
 
 > Learning: Build the pipeline loop first, then worry about grading. Getting the plumbing right before adding complexity makes it easier to debug.
 
-### Step 12 — Prompt Evaluation: Model Based Grading ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/12))
+### Step 12 — Prompt Evaluation: Model Based Grading ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/13))
 
 Replaced the hardcoded score placeholder with a real model grader using a second Claude call.
 
@@ -122,7 +122,7 @@ Replaced the hardcoded score placeholder with a real model grader using a second
 
 > Learning: The average score is your baseline. Change the prompt, re-run, compare — if the number goes up, the change helped.
 
-### Step 13 — Prompt Evaluation: Code Based Grading ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/commit/f0b9759b508837104ac5f4f7ceb3dd407324844c))
+### Step 13 — Prompt Evaluation: Code Based Grading ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/14))
 
 Added syntax validation alongside the model grader to catch format and parse errors programmatically.
 
