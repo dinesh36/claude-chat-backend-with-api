@@ -24,3 +24,16 @@ A JSON schema is the documentation Claude reads to understand when and how to ca
 - Use `ToolParam` from `anthropic.types` for type safety when passing schemas to the API
 
 > Learning: The description field is what Claude actually reads to decide when to call a tool — a vague description leads to missed or incorrect tool calls.
+
+## Handling Message Blocks ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/24))
+
+When Claude uses a tool, it returns a multi-block `response.content` list — not a simple text string — containing a TextBlock and a ToolUseBlock.
+
+- Pass tool schemas via the `tools` parameter in `client.messages.create()`
+- **TextBlock** — human-readable explanation of what Claude is doing
+- **ToolUseBlock** — `id`, `name` (function to call), `input` (params dict), `type: "tool_use"`
+- Always append `response.content` (not just the text) to conversation history — dropping either block breaks context
+- Update any `add_assistant_message()` helpers to accept multi-block content, not just strings
+- Full flow: send message + schema → receive TextBlock + ToolUseBlock → execute function → send result back → receive final response
+
+> Learning: Appending `response.content` directly (not extracting just the text) is the correct way to preserve multi-block conversation history.
