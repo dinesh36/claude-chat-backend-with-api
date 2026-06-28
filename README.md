@@ -75,3 +75,9 @@ Forced Claude to return raw structured output (JSON) without markdown wrappers o
 - Also added `stop_sequences` param to `chat()` for completeness
 
 > Learning: Claude 4 models don't support assistant prefill at all — use a system prompt to control output format instead.
+
+### Step 9 — Structured Data Exercise ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/10))
+
+Applied the structured data technique to generate raw AWS CLI bash commands. Course exercise uses prefill + stop sequence (` ```bash ` / ` ``` `) — fails on Claude 4 with the same prefill error as Step 8. Fixed by replacing with `system="Output raw bash commands only, one per line, no numbering, no markdown, no explanation."`.
+
+> Learning: The system prompt workaround is the consistent pattern for any structured output exercise on Claude 4 — prefill is a Claude 3 technique.
