@@ -78,18 +78,34 @@ Forced Claude to return raw structured output (JSON) without markdown wrappers o
 
 ### Step 9 — Structured Data Exercise ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/10))
 
-Applied the structured data technique to generate raw AWS CLI bash commands. Course exercise uses prefill + stop sequence (` ```bash ` / ` ``` `) — fails on Claude 4 with the same prefill error as Step 8. Fixed by replacing with `system="Output raw bash commands only, one per line, no numbering, no markdown, no explanation."`.
+Practised getting clean structured output from Claude — this time generating raw AWS CLI bash commands.
 
-> Learning: The system prompt workaround is the consistent pattern for any structured output exercise on Claude 4 — prefill is a Claude 3 technique.
+- The course technique uses assistant prefill (` ```bash `) + stop sequence (` ``` `) to strip markdown wrappers
+- This fails on Claude 4 with the same prefill error as Step 8
+- Fix: use a system prompt instead — `"Output raw bash commands only, one per line, no numbering, no markdown, no explanation."`
+
+> Learning: Whenever you see `add_assistant_message` being used to control output format, replace it with a system prompt — that's the Claude 4 compatible way.
 
 ### Step 10 — Prompt Evaluation: Generating Test Datasets ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/11))
 
-Used Claude to auto-generate an eval dataset of AWS-specific coding tasks (Python, JSON, Regex). Applied the Claude 4 system prompt workaround to get raw JSON output. Added `json.dumps(dataset, indent=2)` for readable notebook output and saved the dataset to `dataset.json` for reuse.
+Used Claude itself to automatically create a dataset of test cases for prompt evaluation.
 
-> Learning: Generate the dataset once and save it — regenerating on every eval run wastes tokens and introduces variability into your baseline.
+- The dataset is a list of JSON objects, each with a `task` field describing an AWS coding task
+- Tasks cover three types: Python functions, JSON configs, and regular expressions
+- Used the system prompt workaround to get clean JSON output (no markdown or explanations)
+- Pretty-printed with `json.dumps(dataset, indent=2)` for readable notebook output
+- Saved to `dataset.json` so it can be reused without regenerating every time
+
+> Learning: Generate the dataset once and save it to a file. Re-running Claude each time wastes tokens and makes your baseline inconsistent.
 
 ### Step 11 — Prompt Evaluation: Running the Eval ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/12))
 
-Built the core eval pipeline with three functions: `run_prompt()` merges a test case into the prompt and calls Claude; `run_test_case()` returns `{output, test_case, score}`; `run_eval()` loops the full dataset and collects all results. Score hardcoded to 10 as placeholder — real grading logic next.
+Built the core evaluation pipeline using three simple functions that work together:
 
-> Learning: The pipeline itself is simple — load dataset, run each case, collect results. The complexity lives in the grader, not the loop.
+- `run_prompt(test_case)` — takes one test case, builds a prompt from it, sends it to Claude, and returns the response
+- `run_test_case(test_case)` — calls `run_prompt`, then returns a result object with `output`, `test_case`, and `score`
+- `run_eval(dataset)` — loops through all test cases, runs each one, and returns the full list of results
+
+The score is hardcoded to `10` for now — real grading logic will replace this in the next step.
+
+> Learning: Build the pipeline loop first, then worry about grading. Getting the plumbing right before adding complexity makes it easier to debug.
