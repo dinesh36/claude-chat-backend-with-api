@@ -4,7 +4,7 @@ A step-by-step learning repo following the [Building with the Claude API](https:
 
 ## Learning Steps
 
-### Step 1 — First API Request with Claude ([PR #1](https://github.com/dinesh36/claude-chat-backend-with-api/pull/1) · [PR #2](https://github.com/dinesh36/claude-chat-backend-with-api/pull/2))
+### Step 1 — First API Request with Claude ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/2))
 
 Set up the project and made the first working API call to Claude:
 - Installed `anthropic` and `python-dotenv`; secured `ANTHROPIC_API_KEY` in `.env` (gitignored)
