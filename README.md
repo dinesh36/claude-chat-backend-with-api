@@ -48,3 +48,11 @@ Applied a one-sentence system prompt to control Claude's coding style:
 - **With** `"You are a Python engineer who writes very concise code"`: Claude returned a single 1-line function — `return len(s) != len(set(s))`
 
 > Learning: A one-sentence system prompt is often enough — it controls the *style and scope* of the response, not just the role.
+
+### Step 6 — Temperature ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/7))
+
+Added `temperature` (0.0–1.0) as an optional param to `chat()` and verified its effect with a movie idea generation demo:
+- **temperature=0.0** — near-identical "retired safecracker" premise across 3 runs
+- **temperature=1.0** — completely different ideas each time (lighthouse keeper, muscle memory heist, granddaughter rescue)
+
+> Learning: Temperature doesn't guarantee different outputs — it changes the *probability* of getting them. Match it to your use case: low for factual/coding tasks, high for creative work.
