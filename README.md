@@ -65,3 +65,13 @@ Implemented all three streaming patterns to deliver Claude's output word by word
 - `get_final_message()` — assembled `Message` object after streaming for storage/logic
 
 > Learning: Use `text_stream` for display, `get_final_message()` for storage — best of both worlds in a single request.
+
+### Step 8 — Structured Data ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/9))
+
+Forced Claude to return raw structured output (JSON) without markdown wrappers or explanatory prose:
+- **Course technique:** assistant message prefill + stop sequences — makes Claude think it already started a code block, then stops before it closes
+- **Claude 4 limitation:** `claude-sonnet-4-6` rejects conversations ending with an assistant message (`invalid_request_error: assistant message prefill not supported`)
+- **Workaround:** system prompt `"Output raw JSON only. No markdown, no explanation, no code fences."` — works on all models
+- Also added `stop_sequences` param to `chat()` for completeness
+
+> Learning: Claude 4 models don't support assistant prefill at all — use a system prompt to control output format instead.
