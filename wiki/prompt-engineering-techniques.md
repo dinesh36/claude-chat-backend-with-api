@@ -25,7 +25,7 @@ Applied to the meal plan prompt: `"What should this person eat?"` → `"Generate
 
 > Learning: One well-chosen action verb at the start of a prompt can double your eval score before touching anything else.
 
-## Being Specific ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/17))
+## Being Specific ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/18))
 
 Specificity gives Claude a clear target — two types of guidelines you can add to any prompt.
 
