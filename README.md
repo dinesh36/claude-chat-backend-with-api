@@ -4,10 +4,12 @@ A step-by-step learning repo following the [Building with the Claude API](https:
 
 ## Learning Steps
 
-### Step 1 — Project Setup & Security ([PR #1](https://github.com/dinesh36/claude-chat-backend-with-api/pull/1))
+### Step 1 — First API Request with Claude ([PR #1](https://github.com/dinesh36/claude-chat-backend-with-api/pull/1) · [PR #2](https://github.com/dinesh36/claude-chat-backend-with-api/pull/2))
 
-Added `.gitignore` to protect sensitive files from being committed:
-- `.env` / `.env.*` — keeps the `ANTHROPIC_API_KEY` out of version control
-- `chat.ipynb` — excludes local experiment notebooks from the repo
+Set up the project and made the first working API call to Claude:
+- Installed `anthropic` and `python-dotenv`; secured `ANTHROPIC_API_KEY` in `.env` (gitignored)
+- Initialised the Anthropic client and called `client.messages.create()` with `model`, `max_tokens`, and `messages`
+- Sent the prompt *"What is quantum computing? Answer in one sentence"* and extracted the response via `message.content[0].text`
+- `chat.ipynb` contains the full working notebook
 
-> Learning: Always set up `.gitignore` before committing anything to avoid accidentally leaking API keys.
+> Learning: API keys must never be committed — always load them from `.env`. The `max_tokens` param is a safety ceiling, not a target length.
