@@ -36,3 +36,14 @@ Specificity gives Claude a clear target — two types of guidelines you can add 
 Applied to the meal plan prompt: adding 6 specific output guidelines raised eval score from **3.92 → 7.86**.
 
 > Learning: Specificity is the single highest-leverage technique. Output guidelines alone can double your score — add them to every prompt by default.
+
+## Structure with XML Tags ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/19))
+
+XML tags add structure to complex prompts — creating clear boundaries between instructions, data, and different content types.
+
+- Wrap data in descriptive tags: `<sales_records>`, `<athlete_information>`, `<my_code>`, `<docs>`
+- Use specific names over generic ones (`<sales_records>` not `<data>`)
+- Most valuable when: mixing content types, large data blocks, multiple interpolated variables
+- Applied to the meal plan prompt: athlete inputs wrapped in `<athlete_information>` tags for clarity
+
+> Learning: XML tags don't always show dramatic score gains on simple prompts — their power scales with prompt complexity and data volume.

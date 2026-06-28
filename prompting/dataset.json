@@ -1,50 +1,50 @@
 [
   {
     "prompt_inputs": {
-      "height": "180",
-      "weight": "72",
-      "goal": "Marathon preparation with sustained energy for long-distance running",
-      "restrictions": "None"
+      "height": "165",
+      "weight": "55",
+      "goal": "marathon training",
+      "restrictions": "none"
     },
     "solution_criteria": [
-      "Meal plan includes 4-5 meals/snacks distributed throughout the day",
-      "Carbohydrates comprise 55-65% of total calories for endurance fuel",
-      "Total daily calories support high-performance training needs for 72kg athlete",
-      "Meals are practical, compact, and listed in chronological order"
+      "Meal plan covers exactly 1 day with breakfast, lunch, dinner, and snacks",
+      "Emphasizes carbohydrate-rich foods appropriate for marathon endurance training",
+      "Recommendations are calorie-dense and suitable for a 55kg lightweight athlete",
+      "Plan is compact and concise (brief descriptions, not extensive detail)"
     ],
     "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
-    "scenario": "Testing with a high-performance endurance athlete (marathon runner) with no dietary restrictions to verify calorie-dense, carbohydrate-focused meal planning for sustained energy"
+    "scenario": "Testing with a lightweight endurance athlete (e.g., 165cm, 55kg) training for marathon running with no dietary restrictions to verify calorie-dense, carbohydrate-focused meal recommendations"
   },
   {
     "prompt_inputs": {
-      "height": "178",
-      "weight": "82",
-      "goal": "strength training and muscle gain",
-      "restrictions": "vegetarian, gluten-free, nut allergy"
+      "height": "188",
+      "weight": "95",
+      "goal": "muscle gain",
+      "restrictions": "vegetarian, nut allergy"
     },
     "solution_criteria": [
-      "Meal plan covers 3 meals distributed across 1 day",
-      "All meals comply with vegetarian, gluten-free, and nut-free restrictions",
-      "Plan provides adequate protein intake for strength training athlete (minimum 1.6g per kg bodyweight)",
-      "Plan is compact and concise (brief descriptions, no excessive detail)"
+      "Meal plan contains exactly 1 day of meals (breakfast, lunch, dinner, and snacks)",
+      "All meals are vegetarian with no nuts or nut-derived products",
+      "Provides high-protein content suitable for muscle gain (minimum 130g protein for 95kg athlete)",
+      "Macronutrient balance supports strength training goals with adequate carbohydrates and fats"
     ],
     "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
-    "scenario": "Testing with a strength-training athlete with multiple dietary restrictions (vegetarian, gluten-free, nut allergy) to assess ability to create protein-adequate plans within constraints"
+    "scenario": "Testing with a heavyweight strength athlete (e.g., 188cm, 95kg) focused on muscle gain with multiple dietary restrictions (vegetarian, nut allergy) to ensure high-protein alternatives and balanced macro planning"
   },
   {
     "prompt_inputs": {
-      "height": "170",
-      "weight": "62",
-      "goal": "weight loss while maintaining climbing performance",
-      "restrictions": "vegetarian"
+      "height": "172",
+      "weight": "68",
+      "goal": "weight loss while maintaining soccer performance",
+      "restrictions": "gluten-free"
     },
     "solution_criteria": [
-      "Meal plan contains approximately 1800-2000 calories with 100-120g protein to support muscle preservation during weight loss",
-      "Includes 3 meals and 1-2 snacks distributed throughout the day for sustained energy during training",
-      "All meals are vegetarian and practical to prepare/consume for a single person",
-      "Provides carbohydrates before/after climbing sessions to maintain performance"
+      "Meal plan spans exactly one day with breakfast, lunch, dinner, and snacks",
+      "All meals and snacks are gluten-free",
+      "Caloric deficit appropriate for weight loss (approximately 300-500 kcal below maintenance for 68kg athlete)",
+      "Includes adequate carbohydrates and protein to fuel soccer performance and recovery"
     ],
     "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
-    "scenario": "Testing with a lightweight athlete in a weight-sensitive sport (rock climber) with a weight-loss goal to verify appropriately reduced calorie intake while maintaining performance nutrition"
+    "scenario": "Testing with a sport-specific scenario: a 172cm, 68kg female soccer player aiming for weight loss while maintaining performance, with a gluten-free restriction, to validate caloric deficit while preserving athletic fuel needs"
   }
 ]
