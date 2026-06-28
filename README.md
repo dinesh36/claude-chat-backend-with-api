@@ -56,3 +56,12 @@ Added `temperature` (0.0–1.0) as an optional param to `chat()` and verified it
 - **temperature=1.0** — completely different ideas each time (lighthouse keeper, muscle memory heist, granddaughter rescue)
 
 > Learning: Temperature doesn't guarantee different outputs — it changes the *probability* of getting them. Match it to your use case: low for factual/coding tasks, high for creative work.
+
+### Step 7 — Response Streaming ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/8))
+
+Implemented all three streaming patterns to deliver Claude's output word by word instead of waiting for the full response:
+- `stream=True` on `messages.create()` — exposes raw events (`ContentBlockDelta` carries text chunks)
+- `client.messages.stream()` with `text_stream` — SDK-simplified text-only iteration, no event parsing
+- `get_final_message()` — assembled `Message` object after streaming for storage/logic
+
+> Learning: Use `text_stream` for display, `get_final_message()` for storage — best of both worlds in a single request.
