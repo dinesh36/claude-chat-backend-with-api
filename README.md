@@ -87,3 +87,9 @@ Applied the structured data technique to generate raw AWS CLI bash commands. Cou
 Used Claude to auto-generate an eval dataset of AWS-specific coding tasks (Python, JSON, Regex). Applied the Claude 4 system prompt workaround to get raw JSON output. Added `json.dumps(dataset, indent=2)` for readable notebook output and saved the dataset to `dataset.json` for reuse.
 
 > Learning: Generate the dataset once and save it — regenerating on every eval run wastes tokens and introduces variability into your baseline.
+
+### Step 11 — Prompt Evaluation: Running the Eval ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/12))
+
+Built the core eval pipeline with three functions: `run_prompt()` merges a test case into the prompt and calls Claude; `run_test_case()` returns `{output, test_case, score}`; `run_eval()` loops the full dataset and collects all results. Score hardcoded to 10 as placeholder — real grading logic next.
+
+> Learning: The pipeline itself is simple — load dataset, run each case, collect results. The complexity lives in the grader, not the loop.
