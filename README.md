@@ -40,3 +40,11 @@ Learned how to use system prompts to shape Claude's role and behaviour:
 - Updated `chat()` to accept an optional `system` arg — conditionally included since the API rejects `system=None`
 
 > Learning: System prompts are the primary tool for building specialised AI assistants — they define the role, tone, and constraints before any user message.
+
+### Step 5 — System Prompts Exercise ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/6))
+
+Applied a one-sentence system prompt to control Claude's coding style:
+- **Without system prompt:** Claude returned a verbose multi-function response with docstrings, comparison tables, and full examples
+- **With** `"You are a Python engineer who writes very concise code"`: Claude returned a single 1-line function — `return len(s) != len(set(s))`
+
+> Learning: A one-sentence system prompt is often enough — it controls the *style and scope* of the response, not just the role.
