@@ -109,3 +109,15 @@ Built the core evaluation pipeline using three simple functions that work togeth
 The score is hardcoded to `10` for now — real grading logic will replace this in the next step.
 
 > Learning: Build the pipeline loop first, then worry about grading. Getting the plumbing right before adding complexity makes it easier to debug.
+
+### Step 12 — Prompt Evaluation: Model Based Grading ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/12))
+
+Replaced the hardcoded score placeholder with a real model grader using a second Claude call.
+
+- `grade_by_model()` sends the original task and Claude's output to Claude for evaluation
+- Returns a JSON object with `strengths`, `weaknesses`, `reasoning`, and a `score` (1–10)
+- Applied the Claude 4 fix — system prompt instead of assistant prefill for raw JSON output
+- `run_eval()` now calculates and prints an average score across all test cases
+- Always ask for reasoning alongside the score — without it, models default to middling scores around 6
+
+> Learning: The average score is your baseline. Change the prompt, re-run, compare — if the number goes up, the change helped.
