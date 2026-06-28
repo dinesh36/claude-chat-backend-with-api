@@ -1,0 +1,50 @@
+[
+  {
+    "prompt_inputs": {
+      "height": "178",
+      "weight": "68",
+      "goal": "Marathon endurance performance with high energy demands",
+      "restrictions": "Vegan, gluten-free"
+    },
+    "solution_criteria": [
+      "Meal plan covers full day with breakfast, lunch, dinner, and snacks",
+      "All meals accommodate both vegan and gluten-free requirements",
+      "Includes adequate carbohydrates and protein to support marathon training energy needs",
+      "Meals are practical and concise (1-day format, not elaborate)"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a high-performance endurance athlete (marathon runner) with multiple dietary restrictions (vegan, gluten-free) to verify the meal plan balances performance nutrition with constraint accommodation"
+  },
+  {
+    "prompt_inputs": {
+      "height": "180",
+      "weight": "85",
+      "goal": "muscle building with strength focus",
+      "restrictions": "none"
+    },
+    "solution_criteria": [
+      "Meal plan covers 3 meals and 2-3 snacks distributed throughout the day",
+      "Each meal contains a significant protein source (minimum 25-30g protein per meal)",
+      "Total daily caloric intake supports muscle building surplus for an 85kg athlete",
+      "Plan is presented in compact, easy-to-read format suitable for quick reference"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a strength-focused athlete (weightlifter) with minimal restrictions to ensure the meal plan emphasizes adequate protein intake and caloric surplus for muscle building goals"
+  },
+  {
+    "prompt_inputs": {
+      "height": "160 cm",
+      "weight": "52 kg",
+      "goal": "weight loss while maintaining athletic performance",
+      "restrictions": "vegetarian"
+    },
+    "solution_criteria": [
+      "Meal plan contains exactly 3 meals spanning 1 day with appropriate caloric deficit (approximately 300-500 calories below maintenance for safe weight loss)",
+      "Each meal prioritizes nutrient density with adequate protein, complex carbohydrates, and healthy fats in appropriately sized portions for petite athlete",
+      "All meals comply with vegetarian restriction",
+      "Plan is presented in compact, concise format suitable for quick reference"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with an athlete of petite stature and lower weight pursuing weight loss while maintaining athletic performance to validate caloric deficit recommendations and nutrient density in smaller portions"
+  }
+]
