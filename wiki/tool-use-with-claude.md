@@ -49,3 +49,15 @@ After Claude returns a ToolUseBlock, execute the function and send back a `tool_
 - Full message history: user message → assistant (TextBlock + ToolUseBlock) → user (tool_result) → final assistant response
 
 > Learning: Always pass `tools=[...]` on the follow-up call even when you don't expect another tool use — without it Claude can't parse its own prior tool references in the history.
+
+## Multi-Turn Conversations with Tools ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/26))
+
+When a question requires multiple tools in sequence, a `while True` conversation loop keeps calling Claude and executing tools until no more ToolUseBlocks are returned.
+
+- Loop pattern: `chat()` → append assistant message → check for tool use → `run_tools()` → append tool results → repeat
+- Refactor `add_user_message` / `add_assistant_message` to accept strings, block lists, or full `Message` objects (`isinstance(message, Message)`)
+- Update `chat()` to accept optional `tools` list and return the full message object (not just text)
+- Add `text_from_message()` helper: joins all TextBlocks for display — `[block.text for block in message.content if block.type == "text"]`
+- Break condition: response contains no ToolUseBlock → Claude has all the info it needs
+
+> Learning: The conversation loop is the core of any multi-tool agent — keep it running until Claude stops asking for tools, then extract the final text.
