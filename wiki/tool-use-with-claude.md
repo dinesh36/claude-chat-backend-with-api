@@ -61,3 +61,15 @@ When a question requires multiple tools in sequence, a `while True` conversation
 - Break condition: response contains no ToolUseBlock → Claude has all the info it needs
 
 > Learning: The conversation loop is the core of any multi-tool agent — keep it running until Claude stops asking for tools, then extract the final text.
+
+## Implementing Multiple Turns ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/27))
+
+The complete `run_conversation()` loop — uses `stop_reason == "tool_use"` to detect whether to continue, executes all tool blocks, and sends results back until Claude has a final answer.
+
+- Break condition: `response.stop_reason != "tool_use"` — clean signal Claude is done requesting tools
+- `run_tools()` filters `message.content` for all `tool_use` blocks and processes each with matching `tool_use_id`
+- Error handling: always send a `tool_result` block even on failure (`is_error: True`) so Claude can respond gracefully
+- `run_tool()` routing function maps tool names to implementations — add new tools here without touching the loop
+- Serialize tool output with `json.dumps()` before putting it in the `content` field
+
+> Learning: Never skip sending a tool_result block on error — Claude expects a result for every tool it requested, and omitting one breaks the conversation.
