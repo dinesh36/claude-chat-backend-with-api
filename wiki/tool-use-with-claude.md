@@ -73,3 +73,14 @@ The complete `run_conversation()` loop — uses `stop_reason == "tool_use"` to d
 - Serialize tool output with `json.dumps()` before putting it in the `content` field
 
 > Learning: Never skip sending a tool_result block on error — Claude expects a result for every tool it requested, and omitting one breaks the conversation.
+
+## Using Multiple Tools ([Changes](https://github.com/dinesh36/claude-chat-backend-with-api/pull/28))
+
+Adding tools to the reminder system is mechanical — two changes per tool once the core infrastructure exists.
+
+- Pass all schemas in the `tools=[...]` list in `run_conversation`
+- Add an `elif` case per tool in `run_tool` — no other changes to the core loop needed
+- Test with a complex chained request: *"Set a reminder 177 days after Jan 1st, 2050"* forces Claude to call `add_duration_to_datetime` then `set_reminder` in sequence
+- Each new tool follows the same 4-step pattern: implement function → define schema → add to tools list → add router case
+
+> Learning: The router (`run_tool`) and the tools list are the only two places to touch when adding a new tool — the conversation loop stays untouched.
